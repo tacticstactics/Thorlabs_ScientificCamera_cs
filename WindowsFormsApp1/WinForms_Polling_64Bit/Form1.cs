@@ -154,6 +154,7 @@ namespace Example_DotNet_Camera_Interface
                             this._colorProcessor.Transform48To48(_demosaickedData, ColorFormat.BGRPixel, 0, maxValue, 0, maxValue, 0, maxValue, 0, 0, 0, this._processedImage, ColorFormat.BGRPixel);
                             var imageData = new ImageDataUShort1D(_processedImage, frame.ImageData.Width_pixels, frame.ImageData.Height_pixels, frame.ImageData.BitDepth, ImageDataFormat.BGRPixel);
                             this._latestDisplayBitmap = imageData.ToBitmap_Format24bppRgb();
+                            //this._latestDisplayBitmap = imageData.ToTiff(aaa, 12);
                             this.pictureBoxLiveImage.Invalidate();
                         }
                         else
