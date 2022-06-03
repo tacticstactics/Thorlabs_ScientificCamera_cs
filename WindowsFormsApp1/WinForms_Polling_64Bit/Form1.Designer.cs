@@ -31,24 +31,24 @@
             this.pictureBoxLiveImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLiveImage)).BeginInit();
             this.SuspendLayout();
-            //
+            // 
             // pictureBoxLiveImage
-            //
-            this.pictureBoxLiveImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            // 
+            this.pictureBoxLiveImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxLiveImage.Location = new System.Drawing.Point(10, 10);
+            this.pictureBoxLiveImage.Location = new System.Drawing.Point(10, 9);
             this.pictureBoxLiveImage.Name = "pictureBoxLiveImage";
-            this.pictureBoxLiveImage.Size = new System.Drawing.Size(465, 443);
+            this.pictureBoxLiveImage.Size = new System.Drawing.Size(465, 329);
             this.pictureBoxLiveImage.TabIndex = 0;
             this.pictureBoxLiveImage.TabStop = false;
             this.pictureBoxLiveImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxLiveImage_Paint);
-            //
+            // 
             // Form1
-            //
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 462);
+            this.ClientSize = new System.Drawing.Size(484, 426);
             this.Controls.Add(this.pictureBoxLiveImage);
             this.Name = "Form1";
             this.Text = "TLCamera Example";

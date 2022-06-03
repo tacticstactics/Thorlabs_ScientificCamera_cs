@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -14,6 +15,8 @@ using Thorlabs.TSI.ImageData;
 using Thorlabs.TSI.ImageDataInterfaces;
 using Thorlabs.TSI.TLCamera;
 using Thorlabs.TSI.TLCameraInterfaces;
+
+// Single Tiffs are created every a few hundred seconds.
 
 namespace Example_DotNet_Camera_Interface
 {
@@ -32,6 +35,9 @@ namespace Example_DotNet_Camera_Interface
         private ColorProcessor _colorProcessor = null;
         private bool _isColor = false;
         private ColorProcessorSDK _colorProcessorSDK = null;
+
+
+        
 
         public Form1()
         {
@@ -72,7 +78,7 @@ namespace Example_DotNet_Camera_Interface
 
                 this._tlCamera.IssueSoftwareTrigger();
 
-                this._dispatcherTimerUpdateUI.Interval = TimeSpan.FromMilliseconds(50);
+                this._dispatcherTimerUpdateUI.Interval = TimeSpan.FromMilliseconds(100);
                 this._dispatcherTimerUpdateUI.Tick += this.DispatcherTimerUpdateUI_Tick;
                 this._dispatcherTimerUpdateUI.Start();
             }
@@ -153,14 +159,34 @@ namespace Example_DotNet_Camera_Interface
                             ushort maxValue = (ushort)((1 << frame.ImageData.BitDepth) - 1);
                             this._colorProcessor.Transform48To48(_demosaickedData, ColorFormat.BGRPixel, 0, maxValue, 0, maxValue, 0, maxValue, 0, 0, 0, this._processedImage, ColorFormat.BGRPixel);
                             var imageData = new ImageDataUShort1D(_processedImage, frame.ImageData.Width_pixels, frame.ImageData.Height_pixels, frame.ImageData.BitDepth, ImageDataFormat.BGRPixel);
+
+
+                           //imageData.ToTiff(filepath1, 10);
+                           //Console.WriteLine(Path.GetFullPath(filepath1));
+
                             this._latestDisplayBitmap = imageData.ToBitmap_Format24bppRgb();
-                            //this._latestDisplayBitmap = imageData.ToTiff(aaa, 12);
                             this.pictureBoxLiveImage.Invalidate();
                         }
                         else
                         {
                             this._latestDisplayBitmap = ((ImageDataUShort1D)(frame.ImageData)).ToBitmap_Format24bppRgb();
+
+
+                            DateTime dt1 = DateTime.Now;
+                            String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
+
+                            string filepath1 = @"C:\Temp\" + time1 + ".tif";
+
+
+
+        ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                            Console.WriteLine(Path.GetFullPath(filepath1));
+
+
                             this.pictureBoxLiveImage.Invalidate();
+                            
+                            
+
                         }
                     }
                 }
