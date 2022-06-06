@@ -16,11 +16,12 @@ using Thorlabs.TSI.ImageDataInterfaces;
 using Thorlabs.TSI.TLCamera;
 using Thorlabs.TSI.TLCameraInterfaces;
 
+// Polling
 // Single Tiffs are created every time loop finishes.
 
 namespace Example_DotNet_Camera_Interface
 {
-    public partial class Form1 : Form
+    public partial class Form1_Polling : Form
     {
         private readonly DispatcherTimer _dispatcherTimerUpdateUI = new DispatcherTimer();
 
@@ -39,7 +40,7 @@ namespace Example_DotNet_Camera_Interface
 
         
 
-        public Form1()
+        public Form1_Polling()
         {
             this.InitializeComponent();
 
@@ -175,8 +176,7 @@ namespace Example_DotNet_Camera_Interface
                             DateTime dt1 = DateTime.Now;
                             String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
 
-                            string filepath1 = @"C:\Temp\" + time1 + ".tif";
-
+                            string filepath1 = @"C:\Temp\" + time1 + "_Polling.tif";
 
 
         ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);

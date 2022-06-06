@@ -1,6 +1,6 @@
 ﻿namespace Example_DotNet_Camera_Interface
 {
-    partial class Form1
+    partial class Form1_Polling
     {
         /// <summary>
         /// Required designer variable.
@@ -44,14 +44,14 @@
             this.pictureBoxLiveImage.TabStop = false;
             this.pictureBoxLiveImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxLiveImage_Paint);
             // 
-            // Form1
+            // Form1_Polling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 426);
             this.Controls.Add(this.pictureBoxLiveImage);
-            this.Name = "Form1";
-            this.Text = "TLCamera Example";
+            this.Name = "Form1_Polling";
+            this.Text = "TSICamera Polling Example";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLiveImage)).EndInit();
             this.ResumeLayout(false);
 

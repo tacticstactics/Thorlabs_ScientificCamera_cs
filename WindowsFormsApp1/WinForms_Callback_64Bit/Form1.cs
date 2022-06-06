@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Callback
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -17,7 +19,7 @@ using Thorlabs.TSI.TLCameraInterfaces;
 
 namespace Example_DotNet_Camera_Interface
 {
-    public partial class Form1 : Form
+    public partial class Form1_Callback : Form
     {
         /// <summary>
         /// Data shared between threads. Always lock the _lockableSharedData object before accessing it.
@@ -48,7 +50,7 @@ namespace Example_DotNet_Camera_Interface
         private ITLCameraSDK _tlCameraSDK;
         private ITLCamera _tlCamera;
 
-        public Form1()
+        public Form1_Callback()
         {
             this.InitializeComponent();
 
@@ -190,6 +192,17 @@ namespace Example_DotNet_Camera_Interface
                     else
                     {
                         this._lockableSharedData.LatestImageData = (ImageDataUShort1D)(frame.ImageData);
+
+
+                        DateTime dt1 = DateTime.Now;
+                        String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
+
+                        string filepath1 = @"C:\Temp\" + time1 + "_Callback.tif";
+
+                        ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                        Console.WriteLine(Path.GetFullPath(filepath1));
+
+
                         this._lockableSharedData.IsUpdateUIRequested = true;
                     }
                 }
