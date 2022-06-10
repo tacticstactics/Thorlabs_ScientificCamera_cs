@@ -191,7 +191,6 @@ namespace Example_DotNet_Camera_Interface
                             ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             Console.WriteLine(Path.GetFullPath(filepath1));
 
-
                             this.pictureBoxLiveImage.Invalidate();
                             
                             
