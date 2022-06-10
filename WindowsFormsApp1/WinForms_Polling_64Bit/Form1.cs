@@ -143,6 +143,7 @@ namespace Example_DotNet_Camera_Interface
                         }
 
                         if (this._isColor)
+                        // Color Camera
                         {
                             var rawData = ((IImageDataUShort1D)frame.ImageData).ImageData_monoOrBGR;
                             var size = frame.ImageData.Width_pixels * frame.ImageData.Height_pixels * 3;
@@ -166,20 +167,28 @@ namespace Example_DotNet_Camera_Interface
                            //Console.WriteLine(Path.GetFullPath(filepath1));
 
                             this._latestDisplayBitmap = imageData.ToBitmap_Format24bppRgb();
-                            this.pictureBoxLiveImage.Invalidate();
-                        }
-                        else
-                        {
-                            this._latestDisplayBitmap = ((ImageDataUShort1D)(frame.ImageData)).ToBitmap_Format24bppRgb();
-
 
                             DateTime dt1 = DateTime.Now;
                             String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
+                            string filepath1 = @"C:\Temp\" + time1 + "_Color_Polling.tif";
 
-                            string filepath1 = @"C:\Temp\" + time1 + "_Polling.tif";
+                            ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                            Console.WriteLine(Path.GetFullPath(filepath1));
 
+                            this.pictureBoxLiveImage.Invalidate();
+                        }
+                        else
+                        
+                        // Monochrome
 
-        ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                        {
+                            this._latestDisplayBitmap = ((ImageDataUShort1D)(frame.ImageData)).ToBitmap_Format24bppRgb();
+
+                            DateTime dt1 = DateTime.Now;
+                            String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
+                            string filepath1 = @"C:\Temp\" + time1 + "_Mono_Polling.tif";
+
+                            ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             Console.WriteLine(Path.GetFullPath(filepath1));
 
 
