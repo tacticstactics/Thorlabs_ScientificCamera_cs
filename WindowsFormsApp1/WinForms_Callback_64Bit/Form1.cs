@@ -188,6 +188,18 @@ namespace Example_DotNet_Camera_Interface
                         this._colorProcessor.Transform48To48(_demosaickedData, ColorFormat.BGRPixel, 0, maxValue, 0, maxValue, 0, maxValue, 0, 0, 0, this._processedImage, ColorFormat.BGRPixel);
                         this._lockableSharedData.LatestImageData = new ImageDataUShort1D(_processedImage, frame.ImageData.Width_pixels, frame.ImageData.Height_pixels, frame.ImageData.BitDepth, ImageDataFormat.BGRPixel);
                         this._lockableSharedData.IsUpdateUIRequested = true;
+
+                        DateTime dt1 = DateTime.Now;
+                        String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
+
+                        string filepath1 = @"C:\Temp\" + time1 + "_Callback.tif";
+
+                        ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                        Console.WriteLine(Path.GetFullPath(filepath1));
+
+
+                        this._lockableSharedData.IsUpdateUIRequested = true;
+
                     }
                     else
                     {
