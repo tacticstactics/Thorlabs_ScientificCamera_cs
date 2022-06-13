@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32210.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Callback_64Bit", "WinForms_Callback_64Bit\WinForms_Callback_64Bit.csproj", "{0CE5159D-184F-4A69-8093-656BBC6727EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Callback_64Bit", "WindowsFormsApp1\WinForms_Callback_64Bit\WinForms_Callback_64Bit.csproj", "{0CE5159D-184F-4A69-8093-656BBC6727EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Polling_64Bit", "WinForms_Polling_64Bit\WinForms_Polling_64Bit.csproj", "{99B464EA-9A51-4771-870E-49DF51D1B24D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Polling_64Bit", "WindowsFormsApp1\WinForms_Polling_64Bit\WinForms_Polling_64Bit.csproj", "{99B464EA-9A51-4771-870E-49DF51D1B24D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Polling_Polarization_64Bit", "WinForms_Polling_Polarization_64Bit\WinForms_Polling_Polarization_64Bit.csproj", "{752758ED-FE98-4B32-B9A0-7054CBB3C7DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Polling_Polarization_64Bit", "WindowsFormsApp1\WinForms_Polling_Polarization_64Bit\WinForms_Polling_Polarization_64Bit.csproj", "{752758ED-FE98-4B32-B9A0-7054CBB3C7DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
