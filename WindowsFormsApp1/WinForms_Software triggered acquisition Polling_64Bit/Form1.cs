@@ -170,7 +170,7 @@ namespace Example_DotNet_Camera_Interface
 
                             DateTime dt1 = DateTime.Now;
                             String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
-                            string filepath1 = @"C:\Temp\" + time1 + "_Color_Polling.tif";
+                            string filepath1 = @"C:\Temp\" + time1 + "SoftwareTrigger_Color_Polling.tif";
 
                             ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             Console.WriteLine(Path.GetFullPath(filepath1));
@@ -186,7 +186,7 @@ namespace Example_DotNet_Camera_Interface
 
                             DateTime dt1 = DateTime.Now;
                             String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
-                            string filepath1 = @"C:\Temp\" + time1 + "_Mono_Polling.tif";
+                            string filepath1 = @"C:\Temp\" + time1 + "SoftwareTrigger_Mono_Polling.tif";
 
                             ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             Console.WriteLine(Path.GetFullPath(filepath1));
