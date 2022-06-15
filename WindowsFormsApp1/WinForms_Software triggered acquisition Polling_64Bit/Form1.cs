@@ -16,7 +16,7 @@ using Thorlabs.TSI.ImageDataInterfaces;
 using Thorlabs.TSI.TLCamera;
 using Thorlabs.TSI.TLCameraInterfaces;
 
-// Polling
+// Software Triggered Polling
 // Single Tiffs are created every time loop finishes.
 
 namespace Example_DotNet_Camera_Interface
