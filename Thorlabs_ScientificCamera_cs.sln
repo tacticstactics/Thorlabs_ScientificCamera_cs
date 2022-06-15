@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Polling_64Bit", "W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Polling_Polarization_64Bit", "WindowsFormsApp1\WinForms_Polling_Polarization_64Bit\WinForms_Polling_Polarization_64Bit.csproj", "{752758ED-FE98-4B32-B9A0-7054CBB3C7DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Software triggered acquisition Polling_64Bit", "WindowsFormsApp1\WinForms_Software triggered acquisition Polling_64Bit\WinForms_Software triggered acquisition Polling_64Bit.csproj", "{013DBDCE-39D9-4113-821C-790AFF5A1569}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -27,6 +29,10 @@ Global
 		{752758ED-FE98-4B32-B9A0-7054CBB3C7DB}.Debug|x64.Build.0 = Debug|x64
 		{752758ED-FE98-4B32-B9A0-7054CBB3C7DB}.Release|x64.ActiveCfg = Release|x64
 		{752758ED-FE98-4B32-B9A0-7054CBB3C7DB}.Release|x64.Build.0 = Release|x64
+		{013DBDCE-39D9-4113-821C-790AFF5A1569}.Debug|x64.ActiveCfg = Debug|x64
+		{013DBDCE-39D9-4113-821C-790AFF5A1569}.Debug|x64.Build.0 = Debug|x64
+		{013DBDCE-39D9-4113-821C-790AFF5A1569}.Release|x64.ActiveCfg = Release|x64
+		{013DBDCE-39D9-4113-821C-790AFF5A1569}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
