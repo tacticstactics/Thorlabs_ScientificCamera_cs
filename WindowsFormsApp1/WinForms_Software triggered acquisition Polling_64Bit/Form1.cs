@@ -37,9 +37,7 @@ namespace Example_DotNet_Camera_Interface
         private bool _isColor = false;
         private ColorProcessorSDK _colorProcessorSDK = null;
 
-
-        
-
+     
         public Form1_Polling()
         {
             this.InitializeComponent();
@@ -163,10 +161,11 @@ namespace Example_DotNet_Camera_Interface
                             var imageData = new ImageDataUShort1D(_processedImage, frame.ImageData.Width_pixels, frame.ImageData.Height_pixels, frame.ImageData.BitDepth, ImageDataFormat.BGRPixel);
 
 
-                           //imageData.ToTiff(filepath1, 10);
-                           //Console.WriteLine(Path.GetFullPath(filepath1));
+                            //imageData.ToTiff(filepath1, 10);
+                            //Console.WriteLine(Path.GetFullPath(filepath1));
 
-                            this._latestDisplayBitmap = imageData.ToBitmap_Format24bppRgb();
+                            this._latestDisplayBitmap = imageData.ToBitmap_Format24bppRgb();                              
+
 
                             DateTime dt1 = DateTime.Now;
                             String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
@@ -175,7 +174,14 @@ namespace Example_DotNet_Camera_Interface
                             ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             Console.WriteLine(Path.GetFullPath(filepath1));
 
+                            this.label1.Text = frame.ImageData.BitDepth.ToString();
+                            this.label2.Text = frame.ImageData.Width_pixels.ToString();
+                            this.label3.Text = frame.ImageData.Height_pixels.ToString();
+                            this.label4.Text = frame.ImageData.ImageDataFormat.ToString();
+
                             this.pictureBoxLiveImage.Invalidate();
+
+
                         }
                         else
                         
@@ -192,8 +198,7 @@ namespace Example_DotNet_Camera_Interface
                             Console.WriteLine(Path.GetFullPath(filepath1));
 
                             this.pictureBoxLiveImage.Invalidate();
-                            
-                            
+                                                       
 
                         }
                     }
@@ -212,9 +217,6 @@ namespace Example_DotNet_Camera_Interface
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-
 
 
         }
