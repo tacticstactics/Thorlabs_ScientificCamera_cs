@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Thorlabs.TSI.ColorInterfaces">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.ColorInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ColorProcessor">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.ColorProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.Core">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.CoreInterfaces">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.CoreInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.Demosaicker">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.Demosaicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ImageData">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.ImageData.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.ImageDataInterfaces">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.ImageDataInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.PolarizationInterfaces">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.PolarizationInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.PolarizationProcessor">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.PolarizationProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.TLCamera">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.TLCamera.dll</HintPath>
+    </Reference>
+    <Reference Include="Thorlabs.TSI.TLCameraInterfaces">
+      <HintPath>..\..\dlls\Managed_64_lib\Thorlabs.TSI.TLCameraInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="thorlabs_tsi_camera_sdk1_cli">
+      <HintPath>..\..\dlls\Managed_64_lib\thorlabs_tsi_camera_sdk1_cli.dll</HintPath>
+    </Reference>
+    <Reference Include="thorlabs_tsi_core_cli">
+      <HintPath>..\..\dlls\Managed_64_lib\thorlabs_tsi_core_cli.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

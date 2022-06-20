@@ -171,10 +171,10 @@ namespace Example_DotNet_Camera_Interface
                             string filepath1 = @"C:\Temp\" + time1 + "SoftwareTrigger_Color_Polling.tif";
 
 
-                            ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                        //    ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             // save as monochrome tiff
 
-                            //((ImageDataUShort1D)(colorimageData1)).ToTiff(filepath1, 10);
+                            ((ImageDataUShort1D)(colorimageData1)).ToTiff(filepath1, 10);
                             // save as color tiff
 
                             Console.WriteLine(Path.GetFullPath(filepath1));
