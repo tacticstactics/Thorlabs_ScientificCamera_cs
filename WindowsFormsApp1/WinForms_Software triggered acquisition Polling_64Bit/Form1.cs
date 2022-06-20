@@ -141,7 +141,7 @@ namespace Example_DotNet_Camera_Interface
                         }
 
                         if (this._isColor)
-                        // Color Camera
+                        // If Color Camera
                         {
                             var rawData = ((IImageDataUShort1D)frame.ImageData).ImageData_monoOrBGR;
                             var size = frame.ImageData.Width_pixels * frame.ImageData.Height_pixels * 3;
@@ -158,13 +158,12 @@ namespace Example_DotNet_Camera_Interface
 
                             ushort maxValue = (ushort)((1 << frame.ImageData.BitDepth) - 1);
                             this._colorProcessor.Transform48To48(_demosaickedData, ColorFormat.BGRPixel, 0, maxValue, 0, maxValue, 0, maxValue, 0, 0, 0, this._processedImage, ColorFormat.BGRPixel);
-                            var imageData = new ImageDataUShort1D(_processedImage, frame.ImageData.Width_pixels, frame.ImageData.Height_pixels, frame.ImageData.BitDepth, ImageDataFormat.BGRPixel);
-
+                            var colorimageData1 = new ImageDataUShort1D(_processedImage, frame.ImageData.Width_pixels, frame.ImageData.Height_pixels, frame.ImageData.BitDepth, ImageDataFormat.BGRPixel);
 
                             //imageData.ToTiff(filepath1, 10);
                             //Console.WriteLine(Path.GetFullPath(filepath1));
 
-                            this._latestDisplayBitmap = imageData.ToBitmap_Format24bppRgb();                              
+                            this._latestDisplayBitmap = colorimageData1.ToBitmap_Format24bppRgb();                              
 
 
                             DateTime dt1 = DateTime.Now;
@@ -172,10 +171,10 @@ namespace Example_DotNet_Camera_Interface
                             string filepath1 = @"C:\Temp\" + time1 + "SoftwareTrigger_Color_Polling.tif";
 
 
-                            //((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
-                            // monochrome
+                            ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                            // save as monochrome tiff
 
-                            ((ImageDataUShort1D)(imageData)).ToTiff(filepath1, 10);
+                            //((ImageDataUShort1D)(colorimageData1)).ToTiff(filepath1, 10);
                             // save as color tiff
 
                             Console.WriteLine(Path.GetFullPath(filepath1));
@@ -191,7 +190,7 @@ namespace Example_DotNet_Camera_Interface
                         }
                         else
                         
-                        // Monochrome
+                        // If Monochrome Camera
 
                         {
                             this._latestDisplayBitmap = ((ImageDataUShort1D)(frame.ImageData)).ToBitmap_Format24bppRgb();
