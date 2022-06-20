@@ -171,7 +171,13 @@ namespace Example_DotNet_Camera_Interface
                             String time1 = dt1.ToString($"{dt1:yyyyMMddHHmmssfff}");
                             string filepath1 = @"C:\Temp\" + time1 + "SoftwareTrigger_Color_Polling.tif";
 
-                            ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+
+                            //((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
+                            // monochrome
+
+                            ((ImageDataUShort1D)(imageData)).ToTiff(filepath1, 10);
+                            // save as color tiff
+
                             Console.WriteLine(Path.GetFullPath(filepath1));
 
                             this.label1.Text = frame.ImageData.BitDepth.ToString();
