@@ -38,10 +38,9 @@ namespace WpfApp1
 
         private void ButtonInit_Click(object sender, RoutedEventArgs e)
         {
-
             private readonly DispatcherTimer _dispatcherTimerUpdateUI = new DispatcherTimer();
 
-        private Bitmap _latestDisplayBitmap;
+        //private Bitmap _latestDisplayBitmap;
         private ITLCameraSDK _tlCameraSDK;
         private ITLCamera _tlCamera;
 
