@@ -174,7 +174,7 @@ namespace Example_DotNet_Camera_Interface
                         //    ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             // save as monochrome tiff
 
-                            ((ImageDataUShort1D)(colorimageData1)).ToTiff(filepath1, 10);
+                            ((ImageDataUShort1D)(colorimageData1)).ToTiff(filepath1, 8);
                             // save as color tiff
 
                             Console.WriteLine(Path.GetFullPath(filepath1));
@@ -201,6 +201,11 @@ namespace Example_DotNet_Camera_Interface
 
                             ((ImageDataUShort1D)(frame.ImageData)).ToTiff(filepath1, 10);
                             Console.WriteLine(Path.GetFullPath(filepath1));
+
+                            this.label1.Text = frame.ImageData.BitDepth.ToString();
+                            this.label2.Text = frame.ImageData.Width_pixels.ToString();
+                            this.label3.Text = frame.ImageData.Height_pixels.ToString();
+                            this.label4.Text = frame.ImageData.ImageDataFormat.ToString();
 
                             this.pictureBoxLiveImage.Invalidate();
                                                        
