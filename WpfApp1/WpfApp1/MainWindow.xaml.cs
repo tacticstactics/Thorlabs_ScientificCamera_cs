@@ -24,7 +24,7 @@ using Thorlabs.TSI.TLCamera;
 using Thorlabs.TSI.TLCameraInterfaces;
 
 
-namespace WpfApp1
+namespace WpfApp1_Polling
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -38,77 +38,72 @@ namespace WpfApp1
 
         private void ButtonInit_Click(object sender, RoutedEventArgs e)
         {
-            private readonly DispatcherTimer _dispatcherTimerUpdateUI = new DispatcherTimer();
+                private readonly DispatcherTimer _dispatcherTimerUpdateUI = new DispatcherTimer();
 
-        //private Bitmap _latestDisplayBitmap;
-        private ITLCameraSDK _tlCameraSDK;
-        private ITLCamera _tlCamera;
+            //private Bitmap _latestDisplayBitmap;
+            private ITLCameraSDK _tlCameraSDK;
+            private ITLCamera _tlCamera;
 
-        private ushort[] _demosaickedData = null;
-        private ushort[] _processedImage = null;
-        private Demosaicker _demosaicker = new Demosaicker();
-        private ColorFilterArrayPhase _colorFilterArrayPhase;
-        private ColorProcessor _colorProcessor = null;
-        private bool _isColor = false;
-        private ColorProcessorSDK _colorProcessorSDK = null;
+            private ushort[] _demosaickedData = null;
+            private ushort[] _processedImage = null;
+            private Demosaicker _demosaicker = new Demosaicker();
+            private ColorFilterArrayPhase _colorFilterArrayPhase;
+            private ColorProcessor _colorProcessor = null;
+            private bool _isColor = false;
+            private ColorProcessorSDK _colorProcessorSDK = null;
 
                    
-        _tlCameraSDK = TLCameraSDK.OpenTLCameraSDK();
+            _tlCameraSDK = TLCameraSDK.OpenTLCameraSDK();
             var serialNumbers = _tlCameraSDK.DiscoverAvailableCameras();
 
             if (serialNumbers.Count > 0)
             {
                 _tlCamera = _tlCameraSDK.OpenCamera(serialNumbers.First(), false);
 
-                this._tlCamera.ExposureTime_us = 50000;
-                if (this._tlCamera.GainRange.Maximum > 0)
+                _tlCamera.ExposureTime_us = 50000;
+                if (_tlCamera.GainRange.Maximum > 0)
                 {
             const double gainDb = 6.0;
             var gainIndex = this._tlCamera.ConvertDecibelsToGain(gainDb);
-            this._tlCamera.Gain = gainIndex;
+            _tlCamera.Gain = gainIndex;
         }
-                if (this._tlCamera.BlackLevelRange.Maximum > 0)
+                if (_tlCamera.BlackLevelRange.Maximum > 0)
                 {
-            this._tlCamera.BlackLevel = 48;
+            _tlCamera.BlackLevel = 48;
         }
 
-                this._isColor = this._tlCamera.CameraSensorType == CameraSensorType.Bayer;
-                if (this._isColor)
+                _isColor = _tlCamera.CameraSensorType == CameraSensorType.Bayer;
+                if (_isColor)
                 {
-            this._colorProcessorSDK = new ColorProcessorSDK();
-            this._colorFilterArrayPhase = this._tlCamera.ColorFilterArrayPhase;
-            var colorCorrectionMatrix = this._tlCamera.GetCameraColorCorrectionMatrix();
-            var whiteBalanceMatrix = this._tlCamera.GetDefaultWhiteBalanceMatrix();
-            this._colorProcessor = (ColorProcessor)this._colorProcessorSDK.CreateStandardRGBColorProcessor(whiteBalanceMatrix, colorCorrectionMatrix, (int)this._tlCamera.BitDepth);
+            _colorProcessorSDK = new ColorProcessorSDK();
+            _colorFilterArrayPhase = _tlCamera.ColorFilterArrayPhase;
+            var colorCorrectionMatrix = _tlCamera.GetCameraColorCorrectionMatrix();
+            var whiteBalanceMatrix = _tlCamera.GetDefaultWhiteBalanceMatrix();
+            _colorProcessor = (ColorProcessor)_colorProcessorSDK.CreateStandardRGBColorProcessor(whiteBalanceMatrix, colorCorrectionMatrix, (int)this._tlCamera.BitDepth);
         }
 
-                this._tlCamera.OperationMode = OperationMode.SoftwareTriggered;
+                _tlCamera.OperationMode = OperationMode.SoftwareTriggered;
 
-                this._tlCamera.Arm();
+                _tlCamera.Arm();
 
-                this._tlCamera.IssueSoftwareTrigger();
+                _tlCamera.IssueSoftwareTrigger();
 
-                this._dispatcherTimerUpdateUI.Interval = TimeSpan.FromMilliseconds(100);
-                this._dispatcherTimerUpdateUI.Tick += this.DispatcherTimerUpdateUI_Tick;
-                this._dispatcherTimerUpdateUI.Start();
-            }
-            else
+                _dispatcherTimerUpdateUI.Interval = TimeSpan.FromMilliseconds(100);
+                _dispatcherTimerUpdateUI.Tick += DispatcherTimerUpdateUI_Tick;
+                _dispatcherTimerUpdateUI.Start();
+            
+                else
+                {
+                //MessageBox.Show("No Thorlabs camera detected.");             
+                }
+               
+
+   
+
+            private void OnMenuExit(object sender, RoutedEventArgs e)
             {
-                MessageBox.Show("No Thorlabs camera detected.");
-            }
-        }
-
-
-       }
-
-    
-
-
-
-        private void OnMenuExit(object sender, RoutedEventArgs e)
-        {
             Close();
-        }
+             }
         
     }
 }

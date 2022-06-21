@@ -1,12 +1,12 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Class="WpfApp1_Polling.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:WpfApp1_Polling"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <DockPanel Name ="MyPanel" Margin="0,0,0,0">
+    <DockPanel Name ="MyPanel" Margin="10,10,10,10">
         <Menu>
             <MenuItem Header="File">
                 <MenuItem Click="OnMenuExit" Header="Exit"/>
@@ -20,10 +20,10 @@
 
         </Menu>
 
-        <Grid Height="300">
+        <Grid Height="250" Width="640">
 
             <Image Margin="152,21,123,154"/>
-            <Button x:Name="B1" Click="ButtonInit_Click" Content="Button1" HorizontalAlignment="Left" Margin="249,176,0,0" VerticalAlignment="Top" Height="61" Width="96"/>
+            <Button x:Name="B1" Click="ButtonInit_Click" Content="ButtonInit" HorizontalAlignment="Left" Margin="249,300,0,0" VerticalAlignment="Top" Height="61" Width="96"/>
 
         </Grid>
 
