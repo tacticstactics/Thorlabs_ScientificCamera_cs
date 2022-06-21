@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Polling_Polarizati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_Software triggered acquisition Polling_64Bit", "WindowsFormsApp1\WinForms_Software triggered acquisition Polling_64Bit\WinForms_Software triggered acquisition Polling_64Bit.csproj", "{013DBDCE-39D9-4113-821C-790AFF5A1569}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1", "WpfApp1\WpfApp1\WpfApp1.csproj", "{5383B57C-BA8B-4039-8A8C-6781396AE186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp1_Polling", "WpfApp1\WpfApp1\WpfApp1_Polling.csproj", "{5383B57C-BA8B-4039-8A8C-6781396AE186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
