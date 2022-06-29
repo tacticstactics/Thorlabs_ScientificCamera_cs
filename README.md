@@ -1,6 +1,9 @@
 # Thorlabs_ScientifCamera_cs
 DotNET Thorlabs_ScientifCamera_cs
 64 bit.
-Solution included.
+Visual Studio Solution included.
 
-Folder named "temp" need to be created under C Drive. Tiff files are created for every scan.
+Folder "C:\temp" need to be created prior to start program.
+
+Tiff files are created for every scan.
+
