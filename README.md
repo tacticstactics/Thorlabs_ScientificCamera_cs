@@ -7,3 +7,8 @@ Folder "C:\temp" need to be created prior to start program.
 
 Tiff files are created for every scan.
 
+Callback
+
+Polling
+
+

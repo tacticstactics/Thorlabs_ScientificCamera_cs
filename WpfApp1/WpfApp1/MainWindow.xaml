@@ -22,7 +22,16 @@
 
         <Grid Height="250" Width="640">
 
-            <Image Margin="152,21,123,154"/>
+            <Image Margin="44,263,398,-35" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
             <Button x:Name="B1" Click="ButtonInit_Click" Content="ButtonInit" HorizontalAlignment="Left" Margin="249,300,0,0" VerticalAlignment="Top" Height="61" Width="96"/>
 
         </Grid>
